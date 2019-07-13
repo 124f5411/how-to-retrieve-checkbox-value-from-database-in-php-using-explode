@@ -1,0 +1,1 @@
+# how-to-retrieve-checkbox-value-from-database-in-php-using-explode
