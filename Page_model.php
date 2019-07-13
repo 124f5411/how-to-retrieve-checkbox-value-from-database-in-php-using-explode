@@ -57,7 +57,7 @@ return $checkbox;
     public function update($id)
     {
         //set values
-        $data = $this->page_model->input_values();
+        $data = $this->input_values();
 
         if (empty($data["slug"])) {
             //slug for title
