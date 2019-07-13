@@ -84,29 +84,21 @@
                         <label><?php echo trans('subcategory'); ?></label>
                     </div>
                </div><div class="col-xm-12">
-							 <div class="table-responsive">
-								 <table class="table table-bordered table-striped" role="grid">
-								<tbody>
-									<tr>
-									<?php	$valuesub = ($page->subcat_recip_id); ?>
-    							<?php	$array_of_values = explode(",", $valuesub); 
-    								//if ($item['parent_id'] != "0" && $item['subcat_recip_id'] == "0") :
-						foreach ($array_of_values as $item) { 
-											
-							if(in_array($subcat_recip_id,$item)): {  ?>
-
-                           <td>
-							   <input type="checkbox" name="subcat_recip_id[]" class="square-purple" value="<?php echo html_escape($item["title"]); ?>" CHECKED> &nbsp; <?php echo html_escape($item["title"]);
-										} ?>
-									<?php	else: { ?>
-	<input type="checkbox" name="subcat_recip_id[]" class="square-purple" value="<?php echo html_escape($item["title"]); ?>"> &nbsp; <?php echo html_escape($item["title"]);
-							} 
-                                 
-									endif;	}?>
-									</td> 
-			<?php echo html_escape($valuesub); ?></tr>
-									 </tbody>
-								 </table>
+	 <div class="table-responsive">
+		 <table class="table table-bordered table-striped" role="grid">
+			<tbody>
+				<tr>
+				<?php $valuesub = ($page->subcat_recip_id);
+				$array_of_values = explode(",", $valuesub); ?>
+				<td>
+				<?php foreach ($array_of_values as $item) :?>
+				<input type="checkbox" name="subcat_recip_id[]" class="square-purple" value="<?php echo html_escape($item["title"]); ?>" <?=(in_array($subcat_recip_id,$item))?"CHECKED":""?>> &nbsp; <?=html_escape($item["title"]);?>
+				<?php endforeach; ?>
+				</td> 
+				<?=html_escape($valuesub)?>
+				</tr>
+			 </tbody>
+		 </table>
                      </div>   
                     </div>
                 
